@@ -23,6 +23,9 @@ router.post('/signup', (req, res)=>{
         // redirect to login page
         res.redirect('/auth/login')
     })
+    .catch(err=>{
+        console.log('Did not post to db!!! See error>>>>>>>>', err)
+    })
 })
 
 router.get('/login', (req, res)=>{
