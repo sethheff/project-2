@@ -1,6 +1,7 @@
 const express = require('express')
 const router = express.Router()
 const db = require('../models')
+const passport = require('../config/ppConfig.js')
 
 router.get('/signup', (req, res)=>{
     res.render('auth/signup')
@@ -17,14 +18,22 @@ router.post('/signup', (req, res)=>{
     .then(([createdUser, wasCreated])=>{
         if(wasCreated){
             console.log(`just created the following user:`, createdUser)
+            // log the new user in
+            passport.authenticate('local', {
+                successRedirect: '/',
+                successFlash: 'Account created and logged in!' // !-> FLASH <-!
+            })(req, res) // IIFE = immediate invoked function
         } else {
-            console.log(' An account associated with that email address already exists! Try loggin in.')
+            req.flash('error', 'email already exists, try logging in') // !-> FLASH <-!
+            res.redirect('/auth/login') // redirect to login page if login attempt is unsuccessful 
+            // console.log(' An account associated with that email address already exists! Try loggin in.')
         }
         // redirect to login page
-        res.redirect('/auth/login')
+        // res.redirect('/auth/login')
     })
     .catch(err=>{
-        console.log('Did not post to db!!! See error>>>>>>>>', err)
+        req.flash('error', err.message) // !-> FLASH <-!
+        res.redirect('/auth/signup') // redirect to signup page so they can try again
     })
 })
 
@@ -32,9 +41,16 @@ router.get('/login', (req, res)=>{
     res.render('auth/login')
 })
 
-router.post('/login', (req, res)=>{
-    console.log('Trying to log in with this input:', req.body)
-    //redirect to home route
+router.post('/login', passport.authenticate('local', {
+    failureRedirect: '/auth/login',
+    successRedirect:'/',
+    failureFlash: 'Invalid email or password!',// !-> FLASH <-!
+    successFlash: 'You are now logged in!'// !-> FLASH <-!
+}))
+
+router.get('/logout', (req,res)=>{
+    req.logout()
+    req.flash('Successfully logged out!') // !-> FLASH <-!
     res.redirect('/')
 })
 
