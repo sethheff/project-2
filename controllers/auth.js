@@ -20,7 +20,7 @@ router.post('/signup', (req, res)=>{
             console.log(`just created the following user:`, createdUser)
             // log the new user in
             passport.authenticate('local', {
-                successRedirect: '/',
+                successRedirect: '/profile',
                 successFlash: 'Account created and logged in!' // !-> FLASH <-!
             })(req, res) // IIFE = immediate invoked function
         } else {
@@ -43,7 +43,7 @@ router.get('/login', (req, res)=>{
 
 router.post('/login', passport.authenticate('local', {
     failureRedirect: '/auth/login',
-    successRedirect:'/',
+    successRedirect:'/currencies', 
     failureFlash: 'Invalid email or password!',// !-> FLASH <-!
     successFlash: 'You are now logged in!'// !-> FLASH <-!
 }))

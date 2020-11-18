@@ -1,0 +1,151 @@
+body {
+    background-image: url("AdobeStock_357029835 [Converted].png");
+    
+}
+
+.favForm {
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.globe {
+    height: 750px;
+    position: absolute;
+    right: 200px;
+}
+.globe2 {
+    height: 300px;
+    justify-content: center;
+    right: 100px;
+}
+.container {
+    margin-top: 150px;
+}
+
+.signUpButton  {
+    margin-left: 8px;
+    margin-top: 25px;
+}
+
+.travelingSoon {
+    font-size: 55px;
+    margin-top: 75px; 
+}
+
+.abc {
+   width: 480px;
+}
+
+.headerLogo {
+    width:200px;
+    margin-top: 10px;
+}
+
+.BOX1 {
+    justify-content: center;
+}
+
+.BOX2 {
+    justify-content: center;
+}
+
+.flag {
+    width:200px;
+}
+
+.boxes {
+    text-align: center;
+}
+
+.homePageTitle {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.container {
+    
+    
+    
+}
+
+.container2 {
+    text-align: center;
+}
+
+.currenciesPara {
+    margin-top: 50px;
+    margin-left: 450px;
+    margin-right: 450px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.currencyImg {
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.currenciesTitle {
+    margin-top: 50px;
+}
+
+.favoritesTitle{
+    margin-top: 50px;
+}
+
+.currencyResults {
+    text-align: center;
+    
+}
+
+.userStoryBox {
+    margin: auto;
+
+}
+
+.currencyCodeSearcher {
+    margin-top: 50px;
+}
+
+.letterCode {
+    margin-bottom: 100px;
+}
+
+.favesContainerMain{
+    text-align: center;
+}
+
+.addNewFavButton {
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.favoritesSubTitle {
+    margin-top: 50px;
+}
+
+.favesImage {
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.favCurrency {
+    margin: 25px;
+}
+
+.profileContainer {
+    text-align: center;
+    margin-top: 100px;
+}
+
+.profileJumbotron {
+   
+    
+}
+
+.curCodeRes {
+    margin-bottom: 35px;
+}

@@ -1,0 +1,7 @@
+<form class="favForm" method="POST" action="/travelnotes/<%= travelNoteKey.id %>/edit?_method=PUT">
+    <div class="form-group w-50 fav">
+        <label for="exampleFormControlTextarea1"></label>
+        <textarea placeholder="<%= travelNoteKey.content %>"class="form-control" id="exampleFormControlTextarea1" rows="3" name="content"></textarea>
+      </div>
+    <input type="submit" value="Submit Notes" id="travelNotes" class="btn btn-outline-primary">
+</form>

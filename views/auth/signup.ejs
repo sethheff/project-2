@@ -1,5 +1,7 @@
-<h2>Signup</h2>
-<form method="POST" action="/auth/signup">
+<div class='container w-25'>
+
+<h2>Sign Up</h2>
+<!-- <form method="POST" action="/auth/signup">
     <label for="new-name">Name</label>
     <input type="text" name="name" id="new-name">
 
@@ -10,4 +12,27 @@
     <input type="password" name="password" id="new-password">
 
     <input type="submit" value="Sign Up">
-</form>
+</form> -->
+
+
+
+<form method="POST" action="/auth/signup">
+    <div class="form-group">
+      <label for="new-name">First & Last Name</label>
+      <input type="text" class="form-control" name="name" id="new-name" aria-describedby="emailHelp">
+      
+    </div>
+    <div class="form-group">
+        <label for="new-email">Email address</label>
+        <input type="email" class="form-control" id="new-email" aria-describedby="emailHelp" name="email">
+        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+      </div>
+    <div class="form-group">
+      <label for="exampleInputPassword1">Password</label>
+      <input type="password" name="password" class="form-control" id="new-password">
+    </div>
+   
+    <button type="submit" value="Signup" class="btn btn-primary">Sign Up</button>
+  </form>
+
+</div>

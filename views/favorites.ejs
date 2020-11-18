@@ -1,0 +1,75 @@
+<div class="favesContainerMain">
+
+    <h1 class=" currenciesTitle display-1 favoritesTitle">FAVORITES</h1>
+
+    <!-- <h4 class="favoritesSubTitle">Here is a list of your favorite currencies and their conversion rates.</h4> -->
+    
+    <div class="container2 currenciesPara d-flex justify-content-center">
+
+        <div class="card text-center card text-white bg-dark mb-3 userStoryBox" style="width: 18rem;">
+           <div class="card-body">
+             <h5 class="card-title">Adding Favorites</h5>
+             <p class="card-text"> Click the "+ New Favorite" button to add a new currency to your favorites list!</p>
+             <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+           </div>
+         </div>
+
+         
+         
+        </div>
+
+        
+     
+    <div class="favesImage">
+        <img src="css/AdobeStock_190074252 [Converted].png" class='globe2'>
+    </div>
+
+<div >
+    <% favorites.forEach(function(favorite){ %>
+<!-- Submit button for my favorite's travel notes. -->
+
+        <h1 class="favCurrency"> <%= favorite.currencyCode %> </h1>
+
+        <form class="favForm" method="POST" action="/favorites/<%= favorite.id %>/travel-note">
+            <div class="form-group w-50 fav">
+                <label for="exampleFormControlTextarea1"></label>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="content"></textarea>
+              </div>
+            <input type="submit" value="Submit Note" id="travelNotes" class="btn btn-outline-primary mb-5">
+        </form>
+        
+        
+        
+<!-- Edit button for my favorite's travel notes. -->
+
+        <% favorite.travelNotes && favorite.travelNotes.forEach(function(travelNote){ %>
+            <p><%= travelNote.content %></p>
+            <form class="favForm" method="GET" action="/travelnotes/<%= travelNote.id %>/edit">
+                
+                <input type="submit" value="Edit Note" id="travelNotes" class="btn btn-secondary">
+            </form>
+
+<!-- Delete button for my favorite's travel notes. -->
+            <form class="favForm" method="POST" action="/travelnotes/<%= travelNote.id %>/delete?_method=DELETE">
+                <input type="hidden" value="travelNote" id="travelNotes" name=""class="btn btn-outline-primary">
+                <input type="submit" value="Delete Note" id="travelNotes" class="btn btn-danger mt-2">
+            </form>
+        <% }) %>
+        
+    <% }) %>
+</div>
+
+    
+
+
+   
+        <!-- button to add new favorites. It takes you back to the currencies page. -->
+    <form method="GET" action="/currencies" class="addNewFavButton">
+        <input type="submit" value="+ New Favorite"  class="btn btn-primary btn-lg">
+    </form>
+
+        <!-- button to view profile. It takes to your profile page. -->
+    <form method="GET" action="/profile" class="addNewFavButton">
+        <input type="submit" value="View Profile"  class="btn btn-primary btn-lg">
+    </form>
+</div>

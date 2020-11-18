@@ -14,6 +14,7 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      models.user.hasMany(models.favorites)
     }
   };
   user.init({
@@ -37,6 +38,10 @@ module.exports = (sequelize, DataTypes) => {
           msg: 'Please enter a valid email address.'
         }
       }
+    },
+    profilePicture: {
+      type: DataTypes.STRING,
+      allowNull: true,
     },
     password: {
       type: DataTypes.STRING,
