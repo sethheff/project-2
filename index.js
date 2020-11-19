@@ -88,6 +88,6 @@ app.get('/profile', isLoggedIn, (req,res)=>{
     res.render('profile.ejs')
 })
 
-app.listen(process.env.PORT, ()=>{
+app.listen(process.env.PORT || 8000, ()=>{
     console.log('you\'re listening to the spooky sounds of port 8000')
 })
